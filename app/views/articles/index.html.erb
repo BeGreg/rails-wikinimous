@@ -1,0 +1,20 @@
+<div class="wrapper">
+  </div><div class="content">
+    <ul>
+      <% @articles.each do |article| %>
+          <% url = article.id.to_s %>
+          <p>
+            <li>
+            <h3><%= link_to article.title, article_path(article)%></h3>
+            <div>
+              <a href='/<% url %>/edit'><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> <%= link_to "Edit", edit_article_path(article) %>
+              <a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="/articles/<% url %>"><i class="fa fa-times-circle-o" aria-hidden="true"></i></a> <%= link_to "Delete", article_path(article), method: :delete, data: { confirm: "Are you sure?" } %>
+            </div>
+          </p>
+          <p><%= article.content[0..250] %>... <%= link_to "Lire la suite", article_path(article)%></p>
+        </li>
+      <% end %>
+    </ul>
+    <p><%= link_to "[+] Add a new article", new_article_path %></p>
+  </div>
+</div>

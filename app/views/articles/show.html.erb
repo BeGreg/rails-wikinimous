@@ -1,0 +1,3 @@
+<h1><%= @article.title %></h1>
+<div><%= Kramdown::Document.new(@article.content).to_html.html_safe %></div>
+<div><%= link_to "And back to the home, Simone", articles_path %></div>

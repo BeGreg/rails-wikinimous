@@ -1,0 +1,11 @@
+  <%= form_for(@article) do |f| %>
+    <div>
+      <%= f.label :title, :class => 'form-group' %> <br>
+      <%= f.text_field :title, :class => 'form-group' %>
+    </div>
+    <div>
+      <%= f.label :content, :class => 'form-group' %> <br>
+      <%= f.text_area :content, :placeholder => "Hi, nice site", :size => "80x10", :class=> 'form-group' %>
+    </div>
+    <%= f.submit :class => 'btn btn-primary' %>
+  <% end %>
