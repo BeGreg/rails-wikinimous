@@ -1,3 +1,12 @@
-<h1><%= @article.title %></h1>
-<div><%= Kramdown::Document.new(@article.content).to_html.html_safe %></div>
-<div><%= link_to "And back to the home, Simone", articles_path %></div>
+<div class="wrapper">
+  <div class="content">
+    <h1><%= @article.title %></h1>
+    <div class="toolbar">
+      <a href='/articles/<%= @article.id %>/edit'><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+      <%= link_to "Edit", edit_article_path(@article) %> |
+      <a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="/articles/<%= @article.id %>"><i class="fa fa-times-circle-o" aria-hidden="true"></i></a> <%= link_to "Delete", article_path(@article), method: :delete, data: { confirm: "Are you sure?" } %>
+    </div>
+    <div class="content-txt"><%= Kramdown::Document.new(@article.content).to_html.html_safe %></div>
+    <div style="text-align: center; margin-top: 20px"><%= link_to "And back to the home, Simone", articles_path, class:"btn btn-primary" %></div>
+  </div>
+</div>
